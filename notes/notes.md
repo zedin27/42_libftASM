@@ -9,6 +9,18 @@ Then do ASM alone before diving into Inline ASM, it’ll make it a lot clearer �
 
 ***
 
+Things that I need to look up:
+
+Endians
+
+Cache
+
+hit and miss
+
+***
+
+***
+
 The ways that I write my notes is to make a similar concept in a real situation and interpret it for myself. This is, by far, the best way I can learn from concepts that are difficult to process. This process of learning is to make an analogy and it will be related to _Tom & Jerry_ series because is my favorite cartoon with malleable information to dissect.
 
 [leedle](https://www.google.com/search?q=tom+and+jerry&client=firefox-b-1-ab&source=lnms&tbm=isch&sa=X&ved=0ahUKEwiPk7agh7ncAhUNJ3wKHcoHAfIQ_AUICygC&biw=1251&bih=1366#imgrc=yyACz3SreXbFMM:)
@@ -31,11 +43,12 @@ A little of vocabulary before we moving on:
 5. **Hardware stack:** push and pop emulation with machine instruction and register
 6. **Cache:**
 7. **Hit and miss:**
-8. **Virtual memory:** Abstraction of physical memory; helps distribute between programs in a safer and more effective way, and isolates programs from one another.
-9. **Physical memory:**
+8. **Virtual memory:** Abstraction of physical memory; helps distribute between programs in a safer and more effective way, and isolates programs from one another; memory storage supported by data as a secondary storage and transfer between physical addresses.
+9. **Physical memory:** RAM lol
 10. **Locality of reference:** (read below)
 11. **Temporal locality:** accesses to one address are likely to be close in time.
-12. **Spatial locality:**  accessing an address X the next memory access will likely to be close to X.
+12. **Spatial locality:** accessing an address X the next memory access will likely to be close to X.
+13. **Protection rings:** Computer hardware privilege levels and computer security. The inner, the harder. The zero layer would be the kernel, ring 1 and 2 are device drivers, and ring 3 are applications.
 
 
 **note**: Memory state and values of registers fully describe the Cpu state (from a programmer’s point of  view). understanding an instruction means understanding its effects on memory and registers.
@@ -47,7 +60,18 @@ CPU performance and memory are different for the system management in the long r
 **Okay, where is the Intel 64 you were talking about?**
 Some computers are built in with Intel in it, some don't. If the computer is built with a different processor, then these notes are not good for you to follow along. The computer that I'm using has Intel, so we are good.
 
-Typical programs are using the following pattern: the data working set is small and can be kept inside registers. After fetching the data into registers once we will work with them for quite some time, and then the results will be flushed into memory.
+## Let's talk about registers...
+
+Instruction have to be fetched from memory, operands have to be fetched from memory; store results in memory as well. Sounds like a complicated task, but is the beauty behind data exchanges. That is why there are memory cells. small and fast = speed overtime. There is a difference between CPU cache and registers. Registers allows faster access, which is encoded into opcode for ASM language.
+
+Register -> few bytes long
+
+Cache -> contains instruction code and store temporary copy of read or written data.
+
+In the worst case scenario, register usage slows down computers if the memory are in a bottleneck. To make it better, they are saved for later and stored in a temporary allocated memory cells (virtual memory).
+
+**Okay... what is the point then?**
+Easy, this is how assembly programming works with registers.
 
 The general purpose registers are interchangeable and can be used in many different commands. There are 64-bit registers.
 
@@ -57,7 +81,7 @@ The general purpose registers are interchangeable and can be used in many differ
 | `r1`          | `rcx`         | used for cycles				|
 | `r2`          | `rdx`         | stores data    				|
 | `r3`          | `rbx`         | base register 				|
-| `r4`          | `rsp`         | stores address in the top     |
+| `r4`          | `rsp`         | push top						|
 | `r5`          | `rbp`         | stack's base			        |
 | `r6`          | `rsi`         | src str[i] manipulation cmd	|
 | `r7`          | `rdi`         | dst str[i] manipulation cmd	|
@@ -66,15 +90,27 @@ The general purpose registers are interchangeable and can be used in many differ
 
 **note: All instructions have different sizes!**
 
-There is a difference between CPU cache and registers. Registers allows faster access, which is encoded into opcode for ASM language.
+Because registers have different sizes, it is 8, 16, and 32 bits.
 
-Register -> few bytes long
+8 bits or lower = byte (**b**)
 
-Cache -> contains instruction code and store temporary copy of read or written data.
+16 bits = word (**w**)
+
+32 bits = double word (**d**)
+
+
+![general purpose registers](general_purpose_registers)
+
+**Use protection kids! (protection rings)**
+Ring layers are used for protection of malware or fault capabilities. Each ring are a privilege level of security, and each **instruction type is linked with one or more privilege levels**.
+
+
+**Hardware stacks**
+The hardware stack is most useful to implement function calls in higher-level languages. When a function A calls another function B, it uses the stack to save the context of computations to return to it after B terminates.
 
 **How to run an ASM code?**
 nasm -f macho64 .s -o .o
 ld .o -o executable_name
 
 **Python int/hex calculator**
-python -c 'print(hex(0x20000 + syscall_number))'
+python -c 'print(hex(0x20000))' then append the sys call
