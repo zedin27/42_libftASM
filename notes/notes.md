@@ -61,7 +61,7 @@ The general purpose registers are interchangeable and can be used in many differ
 | `r5`          | `rbp`         | stack's base			        |
 | `r6`          | `rsi`         | src str[i] manipulation cmd	|
 | `r7`          | `rdi`         | dst str[i] manipulation cmd	|
-| `r8`          | `idk`         |    $1          |
+| `r8`          | `idfk`        |    $1          |
 | `r9`...`r15`  | N/A           | $1600          |
 
 **note: All instructions have different sizes!**
