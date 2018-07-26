@@ -1,12 +1,13 @@
 [bits 64]
 
-global start
+global _ft_hello
+
 section .data
 	hello_world db 'Hello World!', 0x0a
 
 section .text
 
-start:
+_ft_hello:
 	mov		rax, 0x2000004		; syscall write
 	mov		rdi, 1				; stdout fd (where will it write?)
 	mov		rsi, hello_world	; string address (where does it start?)
