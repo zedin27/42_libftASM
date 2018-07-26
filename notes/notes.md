@@ -51,17 +51,23 @@ Typical programs are using the following pattern: the data working set is small 
 
 The general purpose registers are interchangeable and can be used in many different commands. There are 64-bit registers.
 
-| bit register  | alias         | functionality  |
-| ------------- |:-------------:| -------------: |
-| `r0`          | `rax`         | $1600          |
-| `r1`          | `rbx`         |   $12          |
-| `r2`          | `rcx`         |    $1          |
-| `r3`          | `rdx`         | $1600          |
-| `r4`          | `rsp`         |   $12          |
-| `r5`          | `rbp`         |    $1          |
-| `r6`          | `rsi`         | $1600          |
-| `r7`          | `rdi`         |   $12          |
+| bit register  | alias         | functionality  				|
+| ------------- |:-------------:| -------------: 				|
+| `r0`          | `rax`         | accumulator    				|
+| `r1`          | `rcx`         | used for cycles				|
+| `r2`          | `rdx`         | stores data    				|
+| `r3`          | `rbx`         | base register 				|
+| `r4`          | `rsp`         | stores address in the top     |
+| `r5`          | `rbp`         | stack's base			        |
+| `r6`          | `rsi`         | src str[i] manipulation cmd	|
+| `r7`          | `rdi`         | dst str[i] manipulation cmd	|
 | `r8`          | `idk`         |    $1          |
 | `r9`...`r15`  | N/A           | $1600          |
 
 **note: All instructions have different sizes!**
+
+There is a difference between CPU cache and registers. Registers allows faster access, which is encoded into opcode for ASM language.
+
+Register -> few bytes long
+
+Cache -> contains instruction code and store temporary copy of read or written data.

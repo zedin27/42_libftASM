@@ -1,69 +1,35 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: ztisnes <ztisnes@student.42.us.org>        +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2018/07/24 14:56:51 by ztisnes           #+#    #+#              #
-#    Updated: 2018/07/24 15:06:48 by ztisnes          ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
+NAME		= libft_s.a
+CC			= nasm
+ASFLAGS		= -f macho64
+SRCDIR		= src/
+OBJDIR		= obj/
 
-################################################################################
-# COLORS                                                                       #
-################################################################################
+SRC			=	hello_proper_exit.s
+OBJS		= $(patsubst %.s, $(OBJDIR)/%.o, $(SRC))
 
-RES = \033[0m
-RED = \033[1;31m
-GREEN = \033[1;32m
-YELLOW = \033[1;33m
-LCYAN = \033[1;36m
-CYAN = \033[1;34m
-PURPLE = \033[0;35m
+all: $(NAME)
 
-################################################################################
-# INITIAL FORMAT OR COMPILATION                                                #
-################################################################################
+$(NAME): $(OBJDIR) $(OBJS)
+	$(ASFLAGS) $(NAME) $(OBJS)
 
-CC		= gcc
-FLAGS	= -Ofast -Wextra -Wall -Werror
-LIB		= libft.a
-NAME	= ft_ssl
-LINK	= -L 42_libft/ -l ft
-INC		= -I inc/ -I 42_libft/libft.h
-SRC		= $(wildcard *.s)
-SRCDIR	= src/
-OBJS	= $(patsubst %, %.o, $(addprefix $(SRCDIR), $(SRC)))
+$(OBJS): $(OBJDIR)/%.o $(SRCDIR)/%.s
+		$(CC) $(ASFLAGS) -o $< $@
+#%.o: $(addprefix $(SRCDIR)/, %.s)
+#	$(CC) $(ASFLAGS) -o $< $@
 
-SRC		= main \
+test:
+	gcc -Wextra -Werror -Wall -o main.c $(NAME)
 
-################################################################################
-# RULES                                                                        #
-################################################################################
-
-all: $(LIB) $(NAME)
-	@ echo "😇$(LCYAN) $(NAME) is made now$(RES) 😇"
-	@echo "I like to eat dog shit"
-
-
-$(NAME): $(OBJS)
-	@ $(CC) $(FLAGS) $(INC) $(OBJS) $(LINK) -o $(NAME)
-
-%.o: %.c
-	@ echo "⚠️$(YELLOW)Bob the builder🎶 $<...$(RES)"
-	@ $(CC) $(FLAGS) $(INC) -c $< -o $@
+nasmins:
+	brew install nasm
 
 clean:
 	/bin/rm -f src/*.o
 	/bin/rm -f $(OBJSRC)
-	make clean -C 42_libft/
 
 fclean: clean
 	/bin/rm -f $(NAME)
-	/bin/rm -f 42_libft/$(LIB)
 	@ echo "👺$(RED) ALL Binaries gone!$(RES) 👺"
-	@ echo "$(GREEN) EATING  DOG SHIT $(GREEN)"
 
 re: fclean all
 	@ echo "$(GREEN)♻️ Program remade completed ♻️$(RES)"
