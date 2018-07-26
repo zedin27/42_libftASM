@@ -4,18 +4,23 @@ ASFLAGS		= -f macho64
 SRCDIR		= src/
 OBJDIR		= obj/
 
-SRC			=	hello_proper_exit.s
-OBJS		= $(patsubst %.s, $(OBJDIR)/%.o, $(SRC))
+SRC			=	\
+				ft_hello.s \
+
+OBJS		= $(patsubst $(SRCDIR)/%.s, $(OBJDIR)/%.o, $(SRC))
 
 all: $(NAME)
 
 $(NAME): $(OBJDIR) $(OBJS)
 	$(ASFLAGS) $(NAME) $(OBJS)
 
-$(OBJS): $(OBJDIR)/%.o $(SRCDIR)/%.s
-		$(CC) $(ASFLAGS) -o $< $@
+$(OBJS): $(OBJDIR)/%.o: $(SRCDIR)/%.s
+		$(CC) $(ASFLAGS) -o $@ $<
 #%.o: $(addprefix $(SRCDIR)/, %.s)
 #	$(CC) $(ASFLAGS) -o $< $@
+
+$(NAME): $(OBJS)
+	ar rc $@ $^
 
 test:
 	gcc -Wextra -Werror -Wall -o main.c $(NAME)
