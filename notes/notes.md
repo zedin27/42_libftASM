@@ -71,3 +71,10 @@ There is a difference between CPU cache and registers. Registers allows faster a
 Register -> few bytes long
 
 Cache -> contains instruction code and store temporary copy of read or written data.
+
+**How to run an ASM code?**
+nasm -f macho64 .s -o .o
+ld .o -o executable_name
+
+**Python int/hex calculator**
+python -c 'print(hex(0x20000 + syscall_number))'
