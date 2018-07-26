@@ -1,40 +1,37 @@
-NAME		= libft_s.a
+NAME		= suchatroll.a
 CC			= nasm
 ASFLAGS		= -f macho64
-SRCDIR		= src/
-OBJDIR		= obj/
-
-SRC			=	\
-				ft_hello.s \
-
-OBJS		= $(patsubst $(SRCDIR)/%.s, $(OBJDIR)/%.o, $(SRC))
+SRCDIR		= src
+OBJDIR		= obj
+EXE			= troll
+SRC			= $(wildcard $(SRCDIR)/*.s)
+OBJ			= $(patsubst $(SRCDIR)/%.s, $(OBJDIR)/%.o, $(SRC))
 
 all: $(NAME)
 
-$(NAME): $(OBJDIR) $(OBJS)
-	$(ASFLAGS) $(NAME) $(OBJS)
-
-$(OBJS): $(OBJDIR)/%.o: $(SRCDIR)/%.s
-		$(CC) $(ASFLAGS) -o $@ $<
-#%.o: $(addprefix $(SRCDIR)/, %.s)
-#	$(CC) $(ASFLAGS) -o $< $@
-
-$(NAME): $(OBJS)
-	ar rc $@ $^
-
 test:
-	gcc -Wextra -Werror -Wall -o main.c $(NAME)
+	gcc main.c $(NAME) -o $(EXE)
 
 nasmins:
 	brew install nasm
 
+$(OBJ): $(OBJDIR)/%.o: $(SRCDIR)/%.s
+		@mkdir -p $(OBJDIR)
+		$(CC) $(ASFLAGS) -o $@ $<
+
+$(NAME): $(OBJ)
+	@ar rc $@ $^
+
 clean:
-	/bin/rm -f src/*.o
 	/bin/rm -f $(OBJSRC)
+	/bin/rm -rf $(OBJDIR)
 
 fclean: clean
 	/bin/rm -f $(NAME)
+	rm -rf ./$(EXE)
 	@ echo "👺$(RED) ALL Binaries gone!$(RES) 👺"
 
 re: fclean all
 	@ echo "$(GREEN)♻️ Program remade completed ♻️$(RES)"
+
+.PHONY: all clean fclean
