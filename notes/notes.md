@@ -54,6 +54,8 @@ A little of vocabulary before we moving on:
 11. **Temporal locality:** accesses to one address are likely to be close in time.
 12. **Spatial locality:** accessing an address X the next memory access will likely to be close to X.
 13. **Protection rings:** Computer hardware privilege levels and computer security. The inner, the harder. The zero layer would be the kernel, ring 1 and 2 are device drivers, and ring 3 are applications.
+14. **Entry point:** beginning of the first instruction to be executed.
+15. **System Calls:** APIs for the interface between the user space and the kernel space.
 
 
 **note**: Memory state and values of registers fully describe the Cpu state (from a programmer’s point of  view). understanding an instruction means understanding its effects on memory and registers.
@@ -113,12 +115,53 @@ Ring layers are used for protection of malware or fault capabilities. Each ring 
 **Hardware stacks**
 The hardware stack is most useful to implement function calls in higher-level languages. When a function A calls another function B, it uses the stack to save the context of computations to return to it after B terminates.
 
-**Important things before we jump to ASM coding**
-	rdi -> file descriptor
+## Important things before we jump to ASM coding
 
-	rsi -> buffer's address (where is the data going to be written out?)
+The program structure is the following:
 
-	rdx -> number of bytes to be written
+	`;`			-> commenting
+
+	`.section`	-> assembly program
+		`data`	-> global variable
+		`text`	-> holds instruction
+
+	`db`		-> bytes
+
+	`dw`		-> called words, equal to 2 bytes
+
+	`dd`		-> double words, equal to 4 bytes
+
+	`dq`		-> quad words, equal to 8 bytes
+
+	`rdi`		-> file descriptor
+
+	`rsi`		-> buffer's address (where is the data going to be written out?)
+
+	`rdx`		-> number of bytes to be written
+
+	`syscall`	-> perform system calls
+
+
+To begin the program, you will start first with this:
+```
+; this ";" is making a comment in ASM
+
+[bits 64]
+
+section .data
+	message: db 'hello, world!', 10		;the number '10' represents newline in ASCII. 'hello, world!' to newline basically
+section .text
+global start
+
+start:
+	mov		rax, 0x20000 + syscall #				; Read for the syscall table in resources
+	.									; registers should hold its arguments
+	.
+	.
+	syscall								; call kernel
+```
+
+It does not matter in which order the registers are initialized.
 
 **How to run an ASM code?**
 nasm -f macho64 foo.s -o foo.o
