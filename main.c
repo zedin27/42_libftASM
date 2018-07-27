@@ -2,11 +2,13 @@
 #include <stdio.h>
 
 extern	int ft_hello(void);
-extern	unsigned ft_strlen(void);
+extern	unsigned ft_strlen(char *str);
 
 int		main(void)
 {
-	char test[6] = "abcde\0";
-	ft_hello();
-	printf("strlen is: %d\n", ft_strlen());
+	char str[3] = "abc";
+
+	//ft_hello();
+	printf("strlen is: %d\n", ft_strlen(str));
+	return (0);
 }

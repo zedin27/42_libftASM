@@ -117,7 +117,7 @@ The hardware stack is most useful to implement function calls in higher-level la
 
 ## Important things before we jump to ASM coding
 
-The program structure is the following:
+For example:
 
 	`;`			-> commenting
 
@@ -141,8 +141,19 @@ The program structure is the following:
 
 	`syscall`	-> perform system calls
 
+	`lea`		-> load effective address, is to obtain a pointer from a region
 
-To begin the program, you will start first with this:
+	`mov`		->
+
+	`cmp`		->
+
+	`calls`		->
+
+	`ret`		->
+
+The program structure is the following:
+
+
 ```
 ; this ";" is making a comment in ASM
 
