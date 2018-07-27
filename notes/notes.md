@@ -2,10 +2,17 @@
 by Igor Zhirkov
 
 ***
-
+### Peer-peer experience / Q&A
 Note from Adam:
 > For anyone trying to learn ASM I’d suggest learning all the basics first, how stack/heap works, how program execution is tracked, registers and which are reserved and for what purpose, etc.
 Then do ASM alone before diving into Inline ASM, it’ll make it a lot clearer 🙂
+
+![leedle](Screen Shot 2018-07-26 at 5.49.13 PM.png)
+
+response from Kane:
+
+>you're doing something in your asm that requires absolute addressing
+remove that or use the PIE compatible version. Absolute address is constant address. relative address is variable address.
 
 ***
 
@@ -19,11 +26,9 @@ hit and miss
 
 ***
 
-***
-
 The ways that I write my notes is to make a similar concept in a real situation and interpret it for myself. This is, by far, the best way I can learn from concepts that are difficult to process. This process of learning is to make an analogy and it will be related to _Tom & Jerry_ series because is my favorite cartoon with malleable information to dissect.
 
-[leedle](https://www.google.com/search?q=tom+and+jerry&client=firefox-b-1-ab&source=lnms&tbm=isch&sa=X&ved=0ahUKEwiPk7agh7ncAhUNJ3wKHcoHAfIQ_AUICygC&biw=1251&bih=1366#imgrc=yyACz3SreXbFMM:)
+![leedle](250px-TomandJerryTitleCardc.jpg)
 
 ***
 
@@ -108,9 +113,16 @@ Ring layers are used for protection of malware or fault capabilities. Each ring 
 **Hardware stacks**
 The hardware stack is most useful to implement function calls in higher-level languages. When a function A calls another function B, it uses the stack to save the context of computations to return to it after B terminates.
 
+**Important things before we jump to ASM coding**
+	rdi -> file descriptor
+
+	rsi -> buffer's address (where is the data going to be written out?)
+
+	rdx -> number of bytes to be written
+
 **How to run an ASM code?**
-nasm -f macho64 .s -o .o
-ld .o -o executable_name
+nasm -f macho64 foo.s -o foo.o
+ld foo.o -o bar
 
 **Python int/hex calculator**
 python -c 'print(hex(0x20000))' then append the sys call
