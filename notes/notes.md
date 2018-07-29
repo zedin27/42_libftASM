@@ -92,8 +92,8 @@ The general purpose registers are interchangeable and can be used in many differ
 | `r5`          | `rbp`         | stack's base			        |
 | `r6`          | `rsi`         | src str[i] manipulation cmd	|
 | `r7`          | `rdi`         | dst str[i] manipulation cmd	|
-| `r8`          | `idfk`        |    $1          |
-| `r9`...`r15`  | N/A           | $1600          |
+| `r8`          | `idfk`        ||
+| `r9`...`r15`  | N/A           ||
 
 **note: All instructions have different sizes!**
 
@@ -135,21 +135,38 @@ For example:
 
 	`rdi`		-> file descriptor
 
-	`rsi`		-> buffer's address (where is the data going to be written out?)
+	`rsi`		-> Instruction pointer -> buffer's address (where is the data going to be written out?)
 
-	`rdx`		-> number of bytes to be written
+	`rdx`		-> data register -> number of bytes to be written
 
 	`syscall`	-> perform system calls
 
 	`lea`		-> load effective address, is to obtain a pointer from a region
 
-	`mov`		->
+	`mov`		-> move
 
-	`cmp`		->
+	`cmp`		-> compare
 
 	`calls`		->
 
-	`ret`		->
+	`ret`		-> return
+
+	`sub`		-> subtract
+
+	`add`		-> add
+
+	`div`		-> divide
+
+	`dec`		-> decrement
+
+	`al`		-> assembly linker
+
+	`rep`		-> repeat prefix
+
+	`repz`		-> repeat prefix is zero
+
+	`repnz`		-> repeat prefix is not zero
+
 
 The program structure is the following:
 
@@ -173,6 +190,18 @@ start:
 ```
 
 It does not matter in which order the registers are initialized.
+
+There are multiple types of registers to use in an assembly language:
+
+#### Data registers
+
+#### Pointer registers
+
+#### Index registers
+
+#### Control registers
+
+#### Segment registers
 
 **How to run an ASM code?**
 nasm -f macho64 foo.s -o foo.o
