@@ -15,6 +15,8 @@ First, you must install `nasm` into your x86-64 computers. To do so, run:
 
 [GNU](http://gcc.gnu.org/onlinedocs/gcc/Link-Options.html)
 
+[Condition Intructions](https://stackoverflow.com/questions/9617877/assembly-jg-jnle-jl-jnge-after-cmp)
+
 Mac OS X or likely BSD has split up the system call numbers into several different "classes." The upper order bits of the syscall number represent the class of the system call, in the case of write and exit, it's SYSCALL_CLASS_UNIX and hence the upper order bits are 2! Thus, every Unix system call will be (0×2000000 + unix syscall #).
 
 I'm taking some time to condense all of the important information I'm getting about
