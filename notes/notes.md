@@ -145,7 +145,7 @@ For example:
 
 	`mov`		-> move
 
-	`cmp`		-> compare
+	`cmp`		-> compare destination and source (cmp dst, src)
 
 	`calls`		->
 
@@ -188,6 +188,8 @@ start:
 	.
 	syscall								; call kernel
 ```
+
+![general purpose registers](structureofnasm.png)
 
 It does not matter in which order the registers are initialized.
 
