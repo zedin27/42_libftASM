@@ -7,6 +7,10 @@ section .data
 
 section .text
 
+%define SYS_WRITE 0x2000004
+
+%define SYS_EXIT 0x2000001
+
 _ft_hello:
 	mov		rax, SYS_WRITE		; syscall write
 	mov		rdi, 1				; stdout fd (where will it write?)
