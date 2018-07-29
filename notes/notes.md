@@ -205,9 +205,11 @@ There are multiple types of registers to use in an assembly language:
 
 #### Segment registers
 
+
 **How to run an ASM code?**
-nasm -f macho64 foo.s -o foo.o
-ld foo.o -o bar
+
+nasm -f macho64 foo.s -o foo.o && ld foo.o -o bar
 
 **Python int/hex calculator**
-python -c 'print(hex(0x20000))' then append the sys call
+
+`python -c print(hex(0x20000))` then append the sys call

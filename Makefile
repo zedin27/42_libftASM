@@ -34,6 +34,8 @@ test:
 
 nasmins:
 	brew install nasm
+	brew unlink nasm && brew link nasm
+	echo "Restart your terminal :)"
 
 $(OBJ): $(OBJDIR)/%.o: $(SRCDIR)/%.s
 		@mkdir -p $(OBJDIR)
@@ -49,7 +51,7 @@ clean:
 fclean: clean
 	/bin/rm -f $(NAME)
 	rm -rf ./$(EXE)
-	@ echo "👺$(RED) ALL Binaries gone!$(RES) 👺"
+	@ echo "👺🖕$(RED) ALL Binaries gone!$(RES) 👺🖕"
 
 re: fclean all
 	@ echo "$(GREEN)♻️ Program remade completed ♻️$(RES)"
