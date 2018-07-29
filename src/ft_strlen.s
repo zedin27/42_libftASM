@@ -5,11 +5,14 @@ section .text
 global ft_strlen						; main
 
 ft_strlen:
-	xor		rax, rax
-	.loop:
-		cmp byte [rdi + rax], 0			; compares null character to the byte
-		je .end							; if is NULL, then end
-		inc rax							; increase rax by 1
-		jmp .loop						; jumps to the next iteration
-	.end:
-		ret
+	push	rdi				; pushing stack to file descriptor
+	sub		rcx, rcx		;
+	cmp byte [rdi + rax], 0	; compares null character to the byte
+	not		rcx				; two's complement
+	sub		rax, rax		; setting up to NULL
+
+	cld
+	repnz	scasb			; scan string for NUL, decrementing each char
+	not		rcx				; again, reversing all bits
+	dec		rcx				; decrement rcx by one, which will contain then
+							; contain the length of the string
