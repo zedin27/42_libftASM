@@ -7,6 +7,8 @@ First, you must install _Netwide Assembler: NASM_. NASM is a powerful low level 
 
 ## Resources
 
+[Bible](http://www.intel.com/content/dam/www/public/us/en/documents/manuals/64-ia-32-architectures-software-developer-manual-325462.pdf)
+
 [The Netwide Assembler: NASM](http://www.cburch.com/csbsju/cs/350/docs/nasm/nasmdoc0.html)
 
 [Introduction to x64 Assembly](https://software.intel.com/en-us/articles/introduction-to-x64-assembly)
