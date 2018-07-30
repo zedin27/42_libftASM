@@ -23,6 +23,10 @@ First, you must install _Netwide Assembler: NASM_. NASM is a powerful low level 
 
 [JUMP Quick Reference](http://unixwiz.net/techtips/x86-jumps.html)
 
+[RIP](https://stackoverflow.com/questions/31234395/why-use-rip-relative-addressing-in-nasm)
+
+[Intel Pentium Instruction Set Reference (Basic Architecture Overview)](http://faydoc.tripod.com/cpu/movsb.htm)
+
 Mac OS X or likely BSD has split up the system call numbers into several different "classes." The upper order bits of the syscall number represent the class of the system call, in the case of write and exit, it's SYSCALL_CLASS_UNIX and hence the upper order bits are 2! Thus, every Unix system call will be (0×2000000 + unix syscall #).
 
 I'm taking some time to condense all of the important information I'm getting about
