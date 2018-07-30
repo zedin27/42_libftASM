@@ -12,17 +12,17 @@ _ft_isalpha:
 					 ; compare c character with (A < Z < a < z)
 					 ; 							65 < 90 < 97 < 122
 
-	cmp		rdi, 'A' ;
-	jl		.true	 ;
+	cmp		rdi, 'A' ; (c < 'A')
+	jl		.true	 ; bruteforced
 
-	cmp		rdi, 'Z' ;
-	jle		.false	 ;
+	cmp		rdi, 'Z' ; !(c <= 'Z')
+	jle		.false	 ; bruteforced
 
-	cmp		rdi, 'a' ;
-	jl		.true	 ;
+	cmp		rdi, 'a' ; (c < 'a')
+	jl		.true	 ; bruteforced
 
-	cmp		rdi, 'z' ;
-	jle		.false	 ;
+	cmp		rdi, 'z' ; !(c <= 'z')
+	jle		.false	 ; bruteforced
 
 	.true:
 		mov	rax, 1
