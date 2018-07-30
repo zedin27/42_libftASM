@@ -8,6 +8,8 @@ extern	unsigned	ft_bzero(void *s, size_t n);
 extern	void		ft_puts(char *str);
 extern	int			ft_isalpha(int c);
 extern	int			ft_isascii(int c);
+extern	int			ft_isdigit(int c);
+extern	int			ft_isprint(int c);
 
 int		main(void)
 {
@@ -33,13 +35,46 @@ int		main(void)
 	// printf("NULL, so 0: %d\n", ft_isalpha('\0')); //1
 	// printf("whitespace: %d\n", ft_isalpha(' ')); //1
 
-	printf("testing ft_isascii -11: %d\n", ft_isascii(-11)); //0
-	printf("testing ft_isascii -1: %d\n", ft_isascii(-1)); //0
-	printf("testing ft_isascii 0: %d\n", ft_isascii(0)); //1
-	printf("testing ft_isascii -0: %d\n", ft_isascii(-0)); //1
-	printf("testing ft_isascii 120: %d\n", ft_isascii(120)); //1
-	printf("testing ft_isascii -1: %d\n", ft_isascii(-1)); //0
-	printf("testing ft_isascii 'Z': %d\n", ft_isascii('Z')); //1
+	// printf("testing ft_isascii -11: %d\n", ft_isascii(-11)); //0
+	// printf("testing ft_isascii -1: %d\n", ft_isascii(-1)); //0
+	// printf("testing ft_isascii 0: %d\n", ft_isascii(0)); //1
+	// printf("testing ft_isascii -0: %d\n", ft_isascii(-0)); //1
+	// printf("testing ft_isascii 120: %d\n", ft_isascii(120)); //1
+	// printf("testing ft_isascii -1: %d\n", ft_isascii(-1)); //0
+	// printf("testing ft_isascii 'Z': %d\n", ft_isascii('Z')); //1
+
+	// printf("ft_isdigit 0?: %d\n", ft_isdigit('0'));
+	// printf("ft_isdigit 1: %d\n", ft_isdigit('1'));
+	// printf("ft_isdigit 2?: %d\n", ft_isdigit('2'));
+	// printf("ft_isdigit 3?: %d\n", ft_isdigit('3'));
+	// printf("ft_isdigit 4?: %d\n", ft_isdigit('4'));
+	// printf("ft_isdigit 5?: %d\n", ft_isdigit('5'));
+	// printf("ft_isdigit 6?: %d\n", ft_isdigit('6'));
+	// printf("ft_isdigit 7?: %d\n", ft_isdigit('7'));
+	// printf("ft_isdigit 8?: %d\n", ft_isdigit('8'));
+	// printf("ft_isdigit 9?: %d\n", ft_isdigit('9'));
+	//
+	// printf("ft_isdigit 0?: %d\n", ft_isdigit('0'));
+	// printf("ft_isdigit newline?: %d\n", ft_isdigit(10)); //0
+	// printf("ft_isdigit 2?: %d\n", ft_isdigit('2'));
+	// printf("ft_isdigit 3?: %d\n", ft_isdigit('3'));
+	// printf("ft_isdigit 4?: %d\n", ft_isdigit('4'));
+	// printf("ft_isdigit 5?: %d\n", ft_isdigit('5'));
+	// printf("ft_isdigit 6?: %d\n", ft_isdigit('6'));
+	// printf("ft_isdigit 7?: %d\n", ft_isdigit('7'));
+	// printf("ft_isdigit 8?: %d\n", ft_isdigit('8'));
+	// printf("ft_isdigit 9?: %d\n", ft_isdigit('9'));
+
+	// printf("ft_isprint for 'c': %d\n",ft_isprint('c')); //1
+	// printf("ft_isprint for 'z': %d\n",ft_isprint('z')); //1
+	// printf("ft_isprint for 'e': %d\n",ft_isprint('e')); //1
+	// printf("ft_isprint for 'i': %d\n",ft_isprint('i')); //1
+	// printf("ft_isprint for 'D': %d\n",ft_isprint('D')); //1
+	// printf("ft_isprint for NULL: %d\n\n",ft_isprint('\0')); //0
+	// printf("ft_isprint for newline: %d\n\n",ft_isprint('\n')); //0
+	// printf("ft_isprint for vertical tab: %d\n\n",ft_isprint('\v')); //0
+	// printf("ft_isprint for del: %d\n\n",ft_isprint('\128')); //0
+	// printf("ft_isprint for horizontal tab: %d\n\n",ft_isprint('0x09')); //0
 
 	return (0);
 }
