@@ -1,11 +1,13 @@
 # libftASM
 Tasting Assembly language based on Intel 64x bits
 
-First, you must install `nasm` into your x86-64 computers. To do so, run:
+First, you must install _Netwide Assembler: NASM_. NASM is a powerful low level language close to machine code into your x86-64 computers. To do so, run:
 
 `make nasmins`
 
 ## Resources
+
+[The Netwide Assembler: NASM](http://www.cburch.com/csbsju/cs/350/docs/nasm/nasmdoc0.html)
 
 [Introduction to x64 Assembly](https://software.intel.com/en-us/articles/introduction-to-x64-assembly)
 
@@ -16,6 +18,8 @@ First, you must install `nasm` into your x86-64 computers. To do so, run:
 [GNU](http://gcc.gnu.org/onlinedocs/gcc/Link-Options.html)
 
 [Condition Intructions](https://stackoverflow.com/questions/9617877/assembly-jg-jnle-jl-jnge-after-cmp)
+
+[JUMP Quick Reference](http://unixwiz.net/techtips/x86-jumps.html)
 
 Mac OS X or likely BSD has split up the system call numbers into several different "classes." The upper order bits of the syscall number represent the class of the system call, in the case of write and exit, it's SYSCALL_CLASS_UNIX and hence the upper order bits are 2! Thus, every Unix system call will be (0×2000000 + unix syscall #).
 
