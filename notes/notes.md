@@ -24,6 +24,8 @@ Cache
 
 hit and miss
 
+Data segment
+
 ***
 
 The ways that I write my notes is to make a similar concept in a real situation and interpret it for myself. This is, by far, the best way I can learn from concepts that are difficult to process. This process of learning is to make an analogy and it will be related to _Tom & Jerry_ series because is my favorite cartoon with malleable information to dissect.
@@ -124,6 +126,7 @@ For example:
 	`.section`	-> assembly program
 		`data`	-> global variable
 		`text`	-> holds instruction
+		`bss`	-> block started by symbol link object file or executable containing statically allocated variables that are not explicitly initialized
 
 	`db`		-> define bytes
 
@@ -155,7 +158,7 @@ For example:
 
 	`add`		-> add
 
-	`div`		-> divide
+	`div`		-> unsigned divide
 
 	`mul`		-> multiplication
 
@@ -163,7 +166,7 @@ For example:
 
 	`inc`		-> increment
 
-	`al`		-> assembly linker
+	`al`		-> add logic
 
 	`rep`		-> repeat prefix
 
@@ -180,6 +183,12 @@ For example:
 	`sf`		-> sign flag, set equal to **high-order bit** of result (`0` if positive `1` if negative)
 
 	`of`		-> overflow flag, set if result is **too large a positive number or too small a negative number** (excluding sign bit) to fit in destination operand; cleared otherwise
+
+	`shr` -> shift right
+
+	`shl` -> shift left
+
+	`$7` -> 7 bits
 
 The program structure is the following:
 
@@ -217,6 +226,18 @@ There are multiple types of registers to use in an assembly language:
 #### Control registers
 
 #### Segment registers
+
+	`cs` -> code segment
+
+	`ds` -> data segment
+
+	`ss` -> stack segment
+
+	`es` -> data segment
+
+	`fs` ->  data segment
+
+	`gs` -> data Segment
 
 
 **How to run an ASM code?**
