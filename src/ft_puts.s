@@ -13,7 +13,7 @@ section .text
 _ft_puts:
 	mov		rax, SYS_WRITE		; syscall write
 	mov		rdi, 1				; stdout fd (where will it write?)
-	mov		rsi					; string address (where does it start?)
+	mov		rsi, 10				; string address (where does it start?) with nl
 	mov		rdx, 20				; string length in bytes (how many bytes to write?)
 	syscall						; system call
 
