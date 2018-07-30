@@ -25,7 +25,6 @@ _ft_isdigit:
 ;	return (0);
 ; }
 
-
 ; jle (<=)
 ; jge (>=)
 ; jl (<)
