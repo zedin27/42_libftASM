@@ -18,14 +18,18 @@ int		main(void)
 
 	//ft_bzero(str, 3); //testing ft_bzero
 	//ft_puts("hello"); //testing ft_puts
-	printf("a = %d\n", ft_isalpha('a')); //1
-	printf("z = %d\n", ft_isalpha('z')); //1
-	printf("A = %d\n", ft_isalpha('A')); //1
-	printf("Z = %d\n\n", ft_isalpha('Z')); //1
+	printf("a = %d\n", ft_isalpha('a')); //0
+	printf("z = %d\n", ft_isalpha('z')); //0
+	printf("A = %d\n", ft_isalpha('A')); //0
+	printf("Z = %d\n", ft_isalpha('Z')); //0
+	printf("b = %d\n", ft_isalpha('b')); //0
+	printf("y = %d\n\n", ft_isalpha('y')); //0
 
-	printf("%d\n", ft_isalpha(125)); //0
-	printf("%d\n", ft_isalpha(50)); //0
-	printf("%d\n", ft_isalpha(133)); //0
-	printf("%d\n", ft_isalpha(-1)); //0
+	printf("ASCII of 125: %d\n", ft_isalpha(125)); //1
+	printf("ASCII of 50: %d\n", ft_isalpha(50)); //1
+	printf("ASCII of 133: %d\n", ft_isalpha(133)); //1
+	printf("ASCII of -1 (doesn't exist): %d\n", ft_isalpha(-1)); //1
+	printf("NULL, so 0: %d\n", ft_isalpha('\0')); //1
+	printf("whitespace: %d\n", ft_isalpha(' ')); //1
 	return (0);
 }
