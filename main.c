@@ -10,11 +10,19 @@ extern	int			ft_isalpha(int c);
 extern	int			ft_isascii(int c);
 extern	int			ft_isdigit(int c);
 extern	int			ft_isprint(int c);
+extern	unsigned	ft_toupper(int c);
+extern	unsigned	ft_tolower(int c);
 
 int		main(void)
 {
 	char str[3] = "abc"; //current string testing
+	char *upper = "abcdefghijklmnopqrstuvwxyz"; //ft_toupper
+	char *lower = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"; //ft_tolower
+	int i;
+	int j;
 
+	i = -1;
+	j = -1;
 	//ft_hello();
 	//printf("ft_strlen is: %d\n", ft_strlen(str)); //testing ft_strlen.s
 	//printf("OG strlen is: %d\n\n", ft_strlen(str));
@@ -75,6 +83,14 @@ int		main(void)
 	// printf("ft_isprint for vertical tab: %d\n\n",ft_isprint('\v')); //0
 	// printf("ft_isprint for del: %d\n\n",ft_isprint('\128')); //0
 	// printf("ft_isprint for horizontal tab: %d\n\n",ft_isprint('0x09')); //0
+
+	printf("ft_toupper testing\n");
+	while (upper[++i] != '\0')
+		printf("uppercasing %c -> %c\n", upper[i], ft_toupper(upper[i]));
+	printf("\n");
+	printf("ft_tolower testing\n");
+	while (lower[++j] != '\0')
+		printf("lowercasing %c -> %c\n", lower[j], ft_tolower(lower[j]));
 
 	return (0);
 }
