@@ -4,6 +4,7 @@
 section .text
 global ft_strlen						; main
 
+; unsigned	ft_strlen(const char *str);
 ft_strlen:
 	push	rdi				; pushing stack to file descriptor
 	sub		rcx, rcx		;
