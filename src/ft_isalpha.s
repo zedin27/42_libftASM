@@ -13,16 +13,16 @@ _ft_isalpha:
 					 ; 							65 < 90 < 97 < 122
 
 	cmp		rdi, 'A' ;
-	jl		.false	 ; jump end if less than or equal to 'A' test this!
+	jl		.true	 ;
 
 	cmp		rdi, 'Z' ;
-	jle		.true	 ; jump end if is greater than or equal to 'Z' test this!
+	jle		.false	 ;
 
 	cmp		rdi, 'a' ;
-	jl		.false	 ;
+	jl		.true	 ;
 
 	cmp		rdi, 'z' ;
-	jg		.false	 ;
+	jle		.false	 ;
 
 	.true:
 		mov	rax, 1
