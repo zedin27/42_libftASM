@@ -6,6 +6,7 @@ section .text
 extern _ft_isalpha
 extern _ft_isdigit
 
+; int		ft_isalnum(int c)
 _ft_isalnum:
 	xor			rax, rax 		; zero out rax registry
 
@@ -21,10 +22,3 @@ _ft_isalnum:
 
 	.ret_true:
 	ret
-
-; int		ft_isalnum(int c)
-; {
-;	if (ft_isalpha(c) || ft_isdigit(c))
-;		return (1);
-;	return (0);
-; }

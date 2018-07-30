@@ -17,15 +17,3 @@ _ft_isdigit:
 		mov	rax, 1
 	.false:
 		ret
-
-; int		ft_isdigit(int c)
-; {
-;	if (c >= '0' && c <= '9')
-;		return (1);
-;	return (0);
-; }
-
-; jle (<=)
-; jge (>=)
-; jl (<)
-; jg (>)

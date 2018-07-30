@@ -17,15 +17,3 @@ _ft_isprint:
 		mov	rax, 1
 	.false:
 		ret
-
-; int		ft_isprint(int c)
-; {
-;	if (c >= ' ' && c <= '~')
-;		return (1);
-;	return (0);
-; }
-
-; jle (<=)
-; jge (>=)
-; jl (<)
-; jg (>)

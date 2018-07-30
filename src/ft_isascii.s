@@ -22,14 +22,3 @@ _ft_isascii:
 		mov	rax, 1
 	.false:
 		ret
-
-; int		ft_isascii(int c)
-; {
-;	return (c < 0 && c > 128)
-; }
-
-
-; jle (<=)
-; jge (>=)
-; jl (<)
-; jg (>)

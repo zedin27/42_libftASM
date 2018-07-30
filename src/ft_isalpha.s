@@ -28,17 +28,3 @@ _ft_isalpha:
 		mov	rax, 1
 	.false:
 		ret
-
-; int		ft_isalpha(int c)
-; {
-;	if (('a' <= (c | 32) && 'z' >= (c | 32))) ; 32-bit flag
-;	if (('a' <= c && 'z' >= c) || ('A' <= c && 'Z' >= c))
-;		return (1);
-;	return (0);
-; }
-
-
-; jle (<=)
-; jge (>=)
-; jl (<)
-; jg (>)

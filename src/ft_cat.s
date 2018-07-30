@@ -11,7 +11,7 @@ section			.bss
 
 section			.text
 
-; extern	int				ft_cat(int fd);
+;int				ft_cat(int fd);
 _ft_cat:
 	xor		rax, rax
 	push	rbp
