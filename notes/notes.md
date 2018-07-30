@@ -125,19 +125,19 @@ For example:
 		`data`	-> global variable
 		`text`	-> holds instruction
 
-	`db`		-> bytes
+	`db`		-> define bytes
 
-	`dw`		-> called words, equal to 2 bytes
+	`dw`		-> define called words, equal to 2 bytes
 
-	`dd`		-> double words, equal to 4 bytes
+	`dd`		-> define double words, equal to 4 bytes
 
 	`dq`		-> quad words, equal to 8 bytes
 
-	`rdi`		-> file descriptor
+	`rdi`		-> register file descriptor
 
-	`rsi`		-> Instruction pointer -> buffer's address (where is the data going to be written out?)
+	`rsi`		-> register instruction pointer which is a buffer's address (where is the data going to be written out?)
 
-	`rdx`		-> data register -> number of bytes to be written
+	`rdx`		-> register data register which a number of bytes to be written
 
 	`syscall`	-> perform system calls
 
@@ -147,7 +147,7 @@ For example:
 
 	`cmp`		-> compare destination and source (cmp dst, src)
 
-	`calls`		->
+	`calls`		-> calls a **routine** (if you specify name) or controls the trapping of certain conditions **(ON or OFF)**
 
 	`ret`		-> return
 
@@ -157,16 +157,29 @@ For example:
 
 	`div`		-> divide
 
+	`mul`		-> multiplication
+
 	`dec`		-> decrement
+
+	`inc`		-> increment
 
 	`al`		-> assembly linker
 
 	`rep`		-> repeat prefix
 
-	`repz`		-> repeat prefix is zero
+	`repz`		-> repeat prefix is zero (Repeated String Operation)
 
-	`repnz`		-> repeat prefix is not zero
+	`repnz`		-> repeat prefix is not zero (Repeated String Operation)
 
+	`cf`		-> carry flag, set on **high-order bit carry** or borrow; cleared otherwise
+
+	`pf`		-> parity flag, set if **low-order eight bits** of result contain an even number of "1" bits; cleared otherwise
+
+	`zf`		-> zero flags, set if result is **zero**; otherwise cleared
+
+	`sf`		-> sign flag, set equal to **high-order bit** of result (`0` if positive `1` if negative)
+
+	`of`		-> overflow flag, set if result is **too large a positive number or too small a negative number** (excluding sign bit) to fit in destination operand; cleared otherwise
 
 The program structure is the following:
 
@@ -208,7 +221,7 @@ There are multiple types of registers to use in an assembly language:
 
 **How to run an ASM code?**
 
-nasm -f macho64 foo.s -o foo.o && ld foo.o -o bar
+`nasm -f macho64 foo.s -o foo.o && ld foo.o -o bar`
 
 **Python int/hex calculator**
 
