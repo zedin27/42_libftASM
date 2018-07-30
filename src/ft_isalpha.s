@@ -15,11 +15,11 @@ _ft_isalpha:
 	cmp		rdi, 'A' ;
 	jl		.false	 ; jump end if less than or equal to 'A' test this!
 
-	cmp		rdi, 'a' ;
-	jl		.false	 ;
-
 	cmp		rdi, 'Z' ;
 	jle		.true	 ; jump end if is greater than or equal to 'Z' test this!
+
+	cmp		rdi, 'a' ;
+	jl		.false	 ;
 
 	cmp		rdi, 'z' ;
 	jg		.false	 ;
