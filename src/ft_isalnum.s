@@ -18,7 +18,6 @@ _ft_isalnum:
 	jz .ret_true
 
 	mov rax, 0
-	ret;
 
 	.ret_true:
 	ret
