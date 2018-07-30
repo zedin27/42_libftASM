@@ -5,20 +5,21 @@ global _ft_toupper
 
 ; int		_ft_toupper(int c)
 _ft_toupper:
-	xor		rax, rax ; rax is zero at the moment
+	xor		rax, rax ; 		rax is zero at the moment
 	mov		rax, rdi
 
-	cmp		rdi, 'a'		; ('a' < c)
-	jl		.exit	 		; exit
+	cmp		rdi, 'a'		; ('a' > c)
+	jg		.uppercase		;
 
-	cmp		rdi, 'z'		; ('z' > c)
-	jg		.exit		 	; exit
+	cmp		rdi, 'z'		; ('z' < c)
+	jl		.uppercase		;
 
-	.uppercase:				; otherwise, uppercase
-		sub	rdi, 32	 ; (c - 32) to make it uppercase
-		mov rax, rdi ; add the new rdi into rax
+	.uppercase:				; uppercase if the condition is met
+		sub	rdi, 32	 		; (c - 32) to make it uppercase
+		mov rax, rdi 		; new rdi into rax (rax = rdi) now
 
-	.exit
+	.exit:					; otherwise, exit it's original value
+		mov rax, rdi
 		ret
 
 ; int		ft_toupper(int c)
