@@ -18,10 +18,10 @@ int		main(void)
 
 	//ft_bzero(str, 3); //testing ft_bzero
 	//ft_puts("hello"); //testing ft_puts
-	printf("%d\n", ft_isalpha('a')); //1
-	printf("%d\n", ft_isalpha('z')); //1
-	printf("%d\n", ft_isalpha('A')); //1
-	printf("%d\n\n", ft_isalpha('Z')); //1
+	printf("a = %d\n", ft_isalpha('a')); //1
+	printf("z = %d\n", ft_isalpha('z')); //1
+	printf("A = %d\n", ft_isalpha('A')); //1
+	printf("Z = %d\n\n", ft_isalpha('Z')); //1
 
 	printf("%d\n", ft_isalpha(125)); //0
 	printf("%d\n", ft_isalpha(50)); //0
