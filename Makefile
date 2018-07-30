@@ -14,7 +14,7 @@ PURPLE = \033[0;35m
 # INITIAL FORMAT OR COMPILATION                                                #
 ################################################################################
 
-NAME		:= suchatroll.a
+NAME		:= libfts.a
 CC			= nasm
 ASFLAGS		= -f macho64
 SRCDIR		= src
