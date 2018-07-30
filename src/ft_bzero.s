@@ -1,23 +1,21 @@
-; Tell compiler to use 64 bit code
 [bits 64]
 
-; Tell assembler what symbols (functions) to export
 global _ft_bzero
 
-; .text section is where all code lives
 section .text
+extern _ft_memset						; looking at my libft, I was able to
+ 										; put ft_memset.c into my ft_bzero.c. How
+										; is it possible to call this function for
+										; my ft_bzero.s
 
-; unsigned ft_bzero(void *s, size_t n)
+; unsigned ft_bzero(void *s, size_t n)		; ft_bzero(rdi, rsi)
 _ft_bzero:
-	xor		rax, rax
-	.start:
-		cmp		rsi, rax				; compare rax to the src (rax==0)
-		jz		.exit					; exit if the compare is zero
-
-	dec		rsi							; decrease src
-	mov		byte [rdi + rsi], 0			; sets '\0' to the memory of dst[src]
-	jmp		.start						; once it finishes, jump to the label
-										; .start
+	.loop:
+	cmp		rsi, 0
+	dec		rsi
+	jl		.exit
+	mov		byte [rdi + rsi], 0
+	jmp		.loop
 
 	.exit:
 		ret
