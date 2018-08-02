@@ -1,5 +1,5 @@
 # libftASM
-Tasting Assembly language based on Intel 64x bits
+Tasting Assembly language based on Intel x64 bits
 
 First, you must install _Netwide Assembler: NASM_. NASM is a powerful low level language close to machine code into your x86-64 computers. To do so, run:
 
