@@ -13,16 +13,16 @@ _ft_isalpha:
 					 ; 							65 < 90 < 97 < 122
 
 	cmp		rdi, 'A' ; (c < 'A')
-	jl		.true	 ; bruteforced
+	jl		.false	 ;
 
-	cmp		rdi, 'Z' ; !(c <= 'Z')
-	jle		.false	 ; bruteforced
+	cmp		rdi, 'Z' ; (c > 'Z')
+	jle		.true	 ;
 
 	cmp		rdi, 'a' ; (c < 'a')
-	jl		.true	 ; bruteforced
+	jl		.false	 ;
 
 	cmp		rdi, 'z' ; !(c <= 'z')
-	jle		.false	 ; bruteforced
+	jg		.false	 ;
 
 	.true:
 		mov	rax, 1
