@@ -9,10 +9,10 @@ _ft_toupper:
 	mov		rax, rdi
 
 	cmp		rdi, 'a'		; ('a' > c)
-	jg		.uppercase		;
+	ja		.uppercase		;
 
 	cmp		rdi, 'z'		; ('z' < c)
-	jl		.uppercase		;
+	jb		.uppercase		;
 
 	.uppercase:				; uppercase if the condition is met
 		sub	rdi, 32	 		; (c - 32) to make it uppercase

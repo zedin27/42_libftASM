@@ -9,10 +9,10 @@ _ft_tolower:
 	mov		rax, rdi
 
 	cmp		rdi, 'A'		; ('A' > c)
-	jg		.lowercase	 	;
+	ja		.lowercase	 	;
 
 	cmp		rdi, 'Z'		; ('Z' < c)
-	jl		.lowercase	 	;
+	jb		.lowercase	 	;
 
 	.lowercase:				; lowercase when the condition is met
 		add	rdi, 32	 		; (c + 32) to make it lowercase
