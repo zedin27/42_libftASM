@@ -6,7 +6,7 @@
 /*   By: ztisnes <ztisnes@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/24 10:13:44 by ztisnes           #+#    #+#             */
-/*   Updated: 2018/07/30 08:30:15 by ztisnes          ###   ########.fr       */
+/*   Updated: 2018/08/02 17:09:32 by ztisnes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,26 +127,27 @@ int		main(void)
 	printf("ft_strlen for \"abc\" is: %lu\n", ft_strlen(str)); //testing ft_strlen
 	printf("OG strlen for \"abc\" is: %lu\n\n", strlen(str));
 
-	printf("a = %d\n", ft_isalpha('a')); //0
-	printf("z = %d\n", ft_isalpha('z')); //0
-	printf("A = %d\n", ft_isalpha('A')); //0
-	printf("Z = %d\n", ft_isalpha('Z')); //0
-	printf("b = %d\n", ft_isalpha('b')); //0
-	printf("y = %d\n\n", ft_isalpha('y')); //0
+	printf("a = %d\n", ft_isalpha('a')); //1
+	printf("z = %d\n", ft_isalpha('z')); //1
+	printf("A = %d\n", ft_isalpha('A')); //1
+	printf("Z = %d\n", ft_isalpha('Z')); //1
+	printf("b = %d\n", ft_isalpha('b')); //1
+	printf("y = %d\n\n", ft_isalpha('y')); //1
 
-	printf("ASCII of 125: %d\n", ft_isalpha(125)); //1
-	printf("ASCII of 50: %d\n", ft_isalpha(50)); //1
-	printf("ASCII of 133: %d\n", ft_isalpha(133)); //1
-	printf("ASCII of -1 (doesn't exist): %d\n", ft_isalpha(-1)); //1
-	printf("%c0 (NULL): %d\n", 92, ft_isalpha('\0')); //1
-	printf("whitespace: %d\n\n", ft_isalpha(' ')); //1
+	printf("ASCII of 125: %d\n", ft_isalpha(125)); //0
+	printf("ASCII of 50: %d\n", ft_isalpha(50)); //0
+	printf("ASCII of 133: %d\n", ft_isalpha(133)); //0
+	printf("ASCII of -1 (doesn't exist): %d\n", ft_isalpha(-1)); //0
+	printf("%c0 (NULL): %d\n", 92, ft_isalpha('\0')); //0
+	printf("'A' - 1: %d\n", ft_isalpha('A' - 1)); //0
+	printf("whitespace: %d\n\n", ft_isalpha(' ')); //0
 
-	printf("a = %d\n", ft_isalnum('a')); //0
-	printf("z = %d\n", ft_isalnum('z')); //0
-	printf("A = %d\n", ft_isalnum('A')); //0
-	printf("Z = %d\n", ft_isalnum('Z')); //0
-	printf("b = %d\n", ft_isalnum('b')); //0
-	printf("y = %d\n", ft_isalnum('y')); //0
+	printf("a = %d\n", ft_isalnum('a')); //1
+	printf("z = %d\n", ft_isalnum('z')); //1
+	printf("A = %d\n", ft_isalnum('A')); //1
+	printf("Z = %d\n", ft_isalnum('Z')); //1
+	printf("b = %d\n", ft_isalnum('b')); //1
+	printf("y = %d\n", ft_isalnum('y')); //1
 	printf("1 = %d\n", ft_isalnum('1')); //1
 	printf("2 = %d\n", ft_isalnum('2')); //1
 	printf("3 = %d\n", ft_isalnum('3')); //1
@@ -156,14 +157,30 @@ int		main(void)
 	printf("7 = %d\n", ft_isalnum('7')); //1
 	printf("8 = %d\n", ft_isalnum('8')); //1
 	printf("9 = %d\n\n", ft_isalnum('9')); //1
-
 	printf("ASCII of 125: %d\n", ft_isalnum(125)); //1
 	printf("ASCII of 50: %d\n", ft_isalnum(50)); //1
 	printf("ASCII of 133: %d\n", ft_isalnum(133)); //1
 	printf("ASCII of -1 (doesn't exist): %d\n", ft_isalnum(-1)); //1
 	printf("%c0 (NULL): %d\n", 92, ft_isalnum('\0')); //1
 	printf("whitespace: %d\n\n", ft_isalnum(' ')); //1
-
+	
+	printf("\n");
+	printf("ft_isalnum for NULL: %d\n", ft_isalnum('\0')); //0
+	printf("ft_isalnum for whitespace ' ': %d\n", ft_isalnum(' ')); //0
+	printf("ft_isalnum for vertical tab: %d\n\n", ft_isalnum(0x0b)); //0
+	printf("ft_isalnum for horizontal tab: %d\n", ft_isalnum(0x09)); //0
+	printf("ft_isalnum for 'a': %d\n", ft_isalnum('a')); //1
+	printf("ft_isalnum for 'c': %d\n", ft_isalnum('c')); //1
+	printf("ft_isalnum for 'C': %d\n", ft_isalnum('C')); //1
+	printf("ft_isalnum for 'M': %d\n", ft_isalnum('M')); //1
+	printf("ft_isalnum for 'Z': %d\n", ft_isalnum('Z')); //1
+	printf("ft_isalnum for 'e': %d\n", ft_isalnum('e')); //1
+	printf("ft_isalnum for 'i': %d\n", ft_isalnum('i')); //1
+	printf("ft_isalnum for 'd': %d\n", ft_isalnum('d')); //1
+	printf("ft_isalnum for 'm': %d\n\n", ft_isalnum('m')); //1
+	printf("ft_isalnum for '4': %d\n", ft_isalnum('4')); //1
+	printf("ft_isalnum for '2': %d\n", ft_isalnum('2')); //1
+	printf("ft_isalnum for '0': %d\n\n", ft_isalnum('0')); //1
 	printf("testing ft_isascii -11: %d\n", ft_isascii(-11)); //0
 	printf("testing ft_isascii -1: %d\n", ft_isascii(-1)); //0
 	printf("testing ft_isascii 0: %d\n", ft_isascii(0)); //1
@@ -203,24 +220,6 @@ int		main(void)
 	printf("\n");
 	while (lower[++j] != '\0')
 		printf("lowercasing %c -> %c\n", lower[j], ft_tolower(lower[j]));
-
-	printf("\n");
-	printf("ft_isalnum for NULL: %d\n", ft_isalnum('\0'));
-	printf("ft_isalnum for whitespace ' ': %d\n", ft_isalnum(' '));
-	printf("ft_isalnum for vertical tab: %d\n\n", ft_isalnum(0x0b));
-	printf("ft_isalnum for horizontal tab: %d\n", ft_isalnum(0x09));
-	printf("ft_isalnum for 'a': %d\n", ft_isalnum('a'));
-	printf("ft_isalnum for 'c': %d\n", ft_isalnum('c'));
-	printf("ft_isalnum for 'C': %d\n", ft_isalnum('C'));
-	printf("ft_isalnum for 'M': %d\n", ft_isalnum('M'));
-	printf("ft_isalnum for 'Z': %d\n", ft_isalnum('Z'));
-	printf("ft_isalnum for 'e': %d\n", ft_isalnum('e'));
-	printf("ft_isalnum for 'i': %d\n", ft_isalnum('i'));
-	printf("ft_isalnum for 'd': %d\n", ft_isalnum('d'));
-	printf("ft_isalnum for 'm': %d\n\n", ft_isalnum('m'));
-	printf("ft_isalnum for '4': %d\n", ft_isalnum('4'));
-	printf("ft_isalnum for '2': %d\n", ft_isalnum('2'));
-	printf("ft_isalnum for '0': %d\n\n", ft_isalnum('0'));
 
 	printf("END OF TESTING\n");
 
