@@ -33,7 +33,7 @@ _ft_puts:
 
 	.newline:
 		mov	rax, SYS_WRITE	; write into rax ""
-		mov	rdi, 1		; load byte
+		mov	rdi, 1			; load byte
 		mov	rsi, msg		; append newline into the
 							; terminating string
 		mov	rdx, STDOUT		; output
