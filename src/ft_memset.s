@@ -8,7 +8,7 @@ _ft_memset:
 	xor		rax, rax	; negating
 	push	rdi			; push rdi to stack
 	mov		rax, rsi	; placing rsi value into rax stack
-	mov		rcx, rdx	; 
+	mov		rcx, rdx	;
 	cld					;
 	rep		stosb		;
 	.exit:
