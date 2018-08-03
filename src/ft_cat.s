@@ -11,7 +11,7 @@ section			.bss
 
 section			.text
 
-;int				ft_cat(int fd);
+; int				ft_cat(int fd);
 _ft_cat:
 	xor		rax, rax
 	push	rbp
@@ -23,16 +23,16 @@ _ft_cat:
 		mov		rdx, BUFF_SIZE
 		mov		rax, SYS_READ 		; read
 		syscall
-			jc		end				; jump carry
+		jc		end					; jump carry
 		cmp		rax, 0
-			jle		end
+		jle		end
 	.write:
 		mov		rdi, STDOUT			; output fd
 		mov		rdx, rax			; store the destination of rax
 		mov		rax, SYS_WRITE		; write
 		syscall
 		pop		rdi					; take out our initial rdi stack
-			jmp		.read			; read again
+		jmp		.read				; read again
 
 	end:
 		mov		rsp, rbp
