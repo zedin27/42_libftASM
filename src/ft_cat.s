@@ -19,7 +19,7 @@ _ft_cat:
 
 	.read:
 		push	rdi					; push rdi stack first before we start reading
-		mov		rsi, buffer
+		lea		rsi, [rel buffer]
 		mov		rdx, BUFF_SIZE
 		mov		rax, SYS_READ 		; read
 		syscall
