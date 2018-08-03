@@ -29,6 +29,8 @@ First, you must install _Netwide Assembler: NASM_. NASM is a powerful low level 
 
 [Malloc in ASM](https://www.cs.uaf.edu/2010/fall/cs301/lecture/10_04_malloc.html)
 
+[Effective Addresses](https://www.tortall.net/projects/yasm/manual/html/nasm-effaddr.html)
+
 Mac OS X or likely BSD has split up the system call numbers into several different "classes." The upper order bits of the syscall number represent the class of the system call, in the case of write and exit, it's SYSCALL_CLASS_UNIX and hence the upper order bits are 2! Thus, every Unix system call will be (0×2000000 + unix syscall #).
 
 I'm taking some time to condense all of the important information I'm getting about
