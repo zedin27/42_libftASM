@@ -6,7 +6,7 @@
 /*   By: ztisnes <ztisnes@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/24 10:13:44 by ztisnes           #+#    #+#             */
-/*   Updated: 2018/08/02 17:09:32 by ztisnes          ###   ########.fr       */
+/*   Updated: 2018/08/03 15:59:56 by ztisnes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,21 +103,10 @@ int		main(void)
 	str_dup = ft_strdup(t);
 	printf("ft_strdup after being called (\"%s\") %d \n", str_dup, (int)ft_strlen(str_dup));
 
-	printf("testing ft_strcat: \n");
-	char nick[42] = "Nick...";
-	printf("%s", ft_strcat(nick, "is your father...\n"));
-
-
 	printf("testing ft_cat: \n");
 	fd = open("src/ft_hello.s", O_RDONLY);
 	ft_cat(fd);
 	one = ft_puts(upper);
-
-	char copy[26];
-	ft_memcpy(copy, upper, 26);
-	printf("empty string copied over from *upper: %s\n\n", copy);
-	ft_memcpy(copy, lower, 26);
-	printf("empty string copied over from *lower : %s\n\n", copy);
 
 	test_memset();
 	printf("\n");
@@ -163,7 +152,7 @@ int		main(void)
 	printf("ASCII of -1 (doesn't exist): %d\n", ft_isalnum(-1)); //1
 	printf("%c0 (NULL): %d\n", 92, ft_isalnum('\0')); //1
 	printf("whitespace: %d\n\n", ft_isalnum(' ')); //1
-	
+
 	printf("\n");
 	printf("ft_isalnum for NULL: %d\n", ft_isalnum('\0')); //0
 	printf("ft_isalnum for whitespace ' ': %d\n", ft_isalnum(' ')); //0
@@ -221,7 +210,17 @@ int		main(void)
 	while (lower[++j] != '\0')
 		printf("lowercasing %c -> %c\n", lower[j], ft_tolower(lower[j]));
 
-	printf("END OF TESTING\n");
+	char copy[26];
+	ft_memcpy(copy, upper, 26);
+	printf("empty string copied over from *upper: %s\n\n", copy);
+	ft_memcpy(copy, lower, 26);
+	printf("empty string copied over from *lower : %s\n\n", copy);
+
+	printf("testing ft_strcat: \n");
+	char nick[42] = "Nick...";
+	printf("%s", ft_strcat(nick, "is your father...\n\n"));
+
+	// printf("END OF TESTING\n");
 
 	return (0);
 }
