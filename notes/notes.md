@@ -146,6 +146,8 @@ For example:
 
 	`lea`		-> load effective address, is to obtain a pointer from a region
 
+	`rel`		->
+
 	`mov`		-> move
 
 	`cmp`		-> compare destination and source (cmp dst, src)
@@ -221,6 +223,8 @@ There are multiple types of registers to use in an assembly language:
 
 #### Pointer registers
 
+	`rip` -> registry instruction pointer
+
 #### Index registers
 
 #### Control registers
@@ -239,6 +243,28 @@ There are multiple types of registers to use in an assembly language:
 
 	`gs` -> data Segment
 
+## Effective Addresses
+
+If you noticed, in my `ft_hello.s` I'm having a problem with PIE compability and bla bla bla.
+This is the message that I get if you are wondering:
+
+```ld: warning: PIE disabled. Absolute addressing (perhaps -mdynamic-no-pic) not allowed in code signed PIE, but used in _ft_hello from
+libfts.a(ft_hello.o). To fix this warning, don't compile with -mdynamic-no-pic or link with -Wl,-no_pie
+```
+
+Basically, it means that Macho-O is funky right? It's because the computer is giving a absolute address immediately and forces to pop this message after you are inserting a message into the address. My case is `hello_world` has the message that is putting in the memory block. Using the `mov` instruction loads the value located address. So it dereferences the address making it absolute. However, using `lea` (load effective address) has some complex calculation to the address. Doing so, it will be a relative address pointer
+
+*mov example*
+
+`mov	reg, imm` (imm is a immediate constant)
+
+In general it's `reg1+reg2*s+displ`, where `s` can be 0,1,2,4, reg1 and reg2 can be general-purpose registers or zero, and displ is immediate displacement.
+
+*lea example*
+
+`lea		rsi, [rel hello_world]`
+
+Can access RIP at run-time. Thus, can be encoded      in the instruction without knowing its value. 
 
 **How to run an ASM code?**
 
