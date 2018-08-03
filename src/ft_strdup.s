@@ -16,7 +16,7 @@ _ft_strdup:
 	call	_malloc			; returns to new allocated memory
 
 	cmp		rax, 0x00       ; check if malloc failed
-	je .exit				; if malloc failed, return NULL
+	je		.exit				; if malloc failed, return NULL
 	mov		rdi, rax		; size for our new string getting duplicated
 	pop		rsi				; rsi is now rdi
 	call	_ft_strcat		; calling ft_strcat
