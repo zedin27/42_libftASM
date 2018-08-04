@@ -188,9 +188,7 @@ For example:
 
 	`shr` -> shift right
 
-	`shl` -> shift left
-
-	`$7` -> 7 bits
+	`shl $7` -> shift left 7 bits
 
 The program structure is the following:
 

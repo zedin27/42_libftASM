@@ -188,9 +188,7 @@ For example:
 
 	`shr` -> shift right
 
-	`shl` -> shift left
-
-	`$7` -> 7 bits
+	`shl $7` -> shift left 7 bits
 
 The program structure is the following:
 
@@ -264,7 +262,7 @@ In general it's `reg1+reg2*s+displ`, where `s` can be 0,1,2,4, reg1 and reg2 can
 
 `lea		rsi, [rel hello_world]`
 
-Can access RIP at run-time. Thus, can be encoded      in the instruction without knowing its value. 
+Can access RIP at run-time. Thus, can be encoded      in the instruction without knowing its value.
 
 **How to run an ASM code?**
 

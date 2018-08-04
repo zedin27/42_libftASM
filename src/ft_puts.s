@@ -34,7 +34,7 @@ _ft_puts:
 	.newline:
 		mov	rax, SYS_WRITE	; write into rax ""
 		mov	rdi, 1			; load byte
-		lea rsi, [rel msg]	; append newline into the
+		lea	rsi, [rel msg]	; append newline into the
 							; terminating string
 		mov	rdx, STDOUT		; output
 		syscall
