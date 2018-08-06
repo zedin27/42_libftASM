@@ -6,7 +6,7 @@
 /*   By: ztisnes <ztisnes@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/24 10:13:44 by ztisnes           #+#    #+#             */
-/*   Updated: 2018/08/03 15:59:56 by ztisnes          ###   ########.fr       */
+/*   Updated: 2018/08/05 19:37:04 by ztisnes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ extern	void 			*ft_memcpy(void *restrict dst, const void *restrict src, size_t n
 extern	char			*ft_strdup(const char *s1);
 extern	int				ft_cat(int fd);
 extern	char			*ft_strcat(char *s1, const char *s2);
+extern	int				ft_add(int x, int y);
+extern	int				ft_divide();
 
 int		test_memset(void)
 {
@@ -81,7 +83,7 @@ int		test_bzero(void)
 
 int		main(void)
 {
-	char str[3] = "abc"; //current string testing
+	char str[] = "theo paulina nick zeid terence haha lol idk what you guys are talking about too much i heard about lemin and zappy together (this is a meme btw)"; //current string testing
 	char *upper = "abcdefghijklmnopqrstuvwxyz"; //ft_toupper
 	char *lower = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"; //ft_tolower
 	char test[10] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
@@ -91,7 +93,7 @@ int		main(void)
 	int	fd = 0;
 	char *str_dup;
 	char f[] = "";
-	char s[] = "hell";
+	char s[] = "hell no baby boy bish";
 	char t[] = "no";
 
 	printf("ft_strdup test: \n");
@@ -210,17 +212,23 @@ int		main(void)
 	while (lower[++j] != '\0')
 		printf("lowercasing %c -> %c\n", lower[j], ft_tolower(lower[j]));
 
+	printf("\n");
 	char copy[26];
 	ft_memcpy(copy, upper, 26);
-	printf("empty string copied over from *upper: %s\n\n", copy);
+	printf("empty string copied over from *upper: %s\n", copy);
 	ft_memcpy(copy, lower, 26);
 	printf("empty string copied over from *lower : %s\n\n", copy);
 
 	printf("testing ft_strcat: \n");
 	char nick[42] = "Nick...";
-	printf("%s", ft_strcat(nick, "is your father...\n\n"));
+	printf("%s", ft_strcat(nick, "is your... FATHER...\n\n"));
 
-	// printf("END OF TESTING\n");
+	printf("END OF TESTING MAIN TESTING\n\n");
+
+	printf("ft_add: %d\n", ft_add(42,42));
+	printf("ft_divide: %d\n\n", ft_divide(255460,25));
+
+	printf("END OF BONUS FUNCTIONS\n");
 
 	return (0);
 }
