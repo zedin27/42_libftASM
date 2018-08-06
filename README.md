@@ -33,6 +33,8 @@ First, you must install _Netwide Assembler: NASM_. NASM is a powerful low level 
 
 [Understanding C by learning Assembly](https://www.recurse.com/blog/7-understanding-c-by-learning-assembly)
 
+[rep movs](https://stackoverflow.com/questions/43343231/enhanced-rep-movsb-for-memcpy/43574756#43574756)
+
 Mac OS X or likely BSD has split up the system call numbers into several different "classes." The upper order bits of the syscall number represent the class of the system call, in the case of write and exit, it's SYSCALL_CLASS_UNIX and hence the upper order bits are 2! Thus, every Unix system call will be (0×2000000 + unix syscall #).
 
 I'm taking some time to condense all of the important information I'm getting about
