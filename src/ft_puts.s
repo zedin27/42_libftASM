@@ -10,7 +10,7 @@ section .text
 %define NULL 0x00
 %define STDOUT 0x01
 
-;int ft_puts(const char *str);
+; int ft_puts(const char *str);
 _ft_puts:
 	xor		rax, rax		; resets rax value to 0
 	mov		r8, rdi			; because we have 15 registers,
