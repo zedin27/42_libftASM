@@ -16,5 +16,5 @@ _ft_factorial:
 	dec		rdi
 	call	_ft_factorial
 	pop		rdi
-	imul		rax, rdi
+	imul	rax, rdi
 	ret
