@@ -6,7 +6,7 @@
 /*   By: ztisnes <ztisnes@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/24 10:13:44 by ztisnes           #+#    #+#             */
-/*   Updated: 2018/08/06 22:05:14 by ztisnes          ###   ########.fr       */
+/*   Updated: 2018/08/06 22:54:54 by ztisnes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,11 @@ extern	char			*ft_strdup(const char *s1);
 extern	int				ft_cat(int fd);
 extern	char			*ft_strcat(char *s1, const char *s2);
 extern	int				ft_add(int x, int y);
+extern	int				ft_sub(int x, int y);
 extern	int32_t			ft_divide(int32_t dividend, int32_t divisor);
 extern	int				ft_mul(int x, int y);
 extern	uint64_t		ft_factorial(uint64_t num);
-extern	void			ft_addfloat(float[], float[]);
+extern	float			ft_addfloat(float[], float[]);
 
 int		test_memset(void)
 {
@@ -236,6 +237,13 @@ int		main(void)
 	printf("ft_add: %d\n", ft_add(-25,42));
 	printf("ft_add: %d\n\n", ft_add(125123545,-121546123));
 
+	printf("ft_sub: %d\n", ft_sub(5,5));
+	printf("ft_sub: %d\n", ft_sub(100,5));
+	printf("ft_sub: %d\n", ft_sub(99,92));
+	printf("ft_sub: %d\n", ft_sub(-100,5));
+	printf("ft_sub: %d\n", ft_sub(0,-0));
+	printf("ft_sub: %d\n\n", ft_sub(1,1));
+
 	printf("ft_divide: %d\n", ft_divide(25,25));
 	printf("ft_divide: %d\n", ft_divide(250,25));
 	printf("ft_divide: %d\n", ft_divide(1111111,10101));
@@ -250,10 +258,17 @@ int		main(void)
 	printf("ft_mul: %d\n", ft_mul(33,33));
 	printf("ft_mul: %d\n\n", ft_mul(111,111));
 
-	float	x[] = {69.69, 42.42, 33.3E22, 1};
-	float	y[] = {-22.233, 0.1234, 1234.5E20, 1};
-	ft_addfloat(x,y);
-	printf("%f\n%f\n%f\n%f\n", x[0], x[1], x[2], x[3]);
+	float result[] = {-29.750, 244.333, 887.29, 1.1E23};
+	float y[] = {-2.25,  199.333, -8.29,  22.1E23};
+	float x[] = {-29.750, 244.333, 887.29, 1.1E23};
+	int sum = 0;
+	ft_addfloat(result,y);
+	while (sum < 4)
+	{
+		//ft_addfloat(x,y);
+		printf("ft_addfloat of %f and %f: %f\n", x[sum], y[sum], result[sum]);
+		sum++;
+	}
 
 	while (fact <= 20)
 	{
