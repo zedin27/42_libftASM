@@ -6,7 +6,7 @@
 /*   By: ztisnes <ztisnes@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/24 10:13:44 by ztisnes           #+#    #+#             */
-/*   Updated: 2018/08/05 19:37:04 by ztisnes          ###   ########.fr       */
+/*   Updated: 2018/08/06 22:05:14 by ztisnes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include <string.h>
 #include <stdlib.h>
 #include <fcntl.h>
+#include <inttypes.h>
 
 extern	int				ft_hello(void);
 extern	unsigned long	ft_strlen(const char *str);
@@ -33,7 +34,10 @@ extern	char			*ft_strdup(const char *s1);
 extern	int				ft_cat(int fd);
 extern	char			*ft_strcat(char *s1, const char *s2);
 extern	int				ft_add(int x, int y);
-extern	int				ft_divide();
+extern	int32_t			ft_divide(int32_t dividend, int32_t divisor);
+extern	int				ft_mul(int x, int y);
+extern	uint64_t		ft_factorial(uint64_t num);
+extern	void			ft_addfloat(float[], float[]);
 
 int		test_memset(void)
 {
@@ -83,26 +87,27 @@ int		test_bzero(void)
 
 int		main(void)
 {
-	char str[] = "theo paulina nick zeid terence haha lol idk what you guys are talking about too much i heard about lemin and zappy together (this is a meme btw)"; //current string testing
-	char *upper = "abcdefghijklmnopqrstuvwxyz"; //ft_toupper
-	char *lower = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"; //ft_tolower
-	char test[10] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
-	int i = -1;
-	int j = -1;
-	int one = 0;
-	int	fd = 0;
-	char *str_dup;
-	char f[] = "";
-	char s[] = "hell no baby boy bish";
-	char t[] = "no";
+	char	str[] = "theo paulina nick zeid terence haha lol idk what you guys are talking about too much i heard about lemin and zappy together (this is a meme btw)"; //current string testing
+	char	*upper = "abcdefghijklmnopqrstuvwxyz"; //ft_toupper
+	char	*lower = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"; //ft_tolower
+	char	test[10] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+	int		i = -1;
+	int		j = -1;
+	int		one = 0;
+	int		fd = 0;
+	char	*str_dup;
+	char	empty[] = "";
+	char	bby[] = "hell no baby boy bish";
+	char	something[] = "no";
+	uint64_t fact = 0;
 
 	printf("ft_strdup test: \n");
 	printf("initializing str_dup\n");
-	str_dup = ft_strdup(f);
+	str_dup = ft_strdup(empty);
 	printf("ft_strdup after being called (\"%s\") %d \n", str_dup, (int)ft_strlen(str_dup));
-	str_dup = ft_strdup(s);
+	str_dup = ft_strdup(bby);
 	printf("ft_strdup after being called (\"%s\") %d \n", str_dup, (int)ft_strlen(str_dup));
-	str_dup = ft_strdup(t);
+	str_dup = ft_strdup(something);
 	printf("ft_strdup after being called (\"%s\") %d \n", str_dup, (int)ft_strlen(str_dup));
 
 	printf("testing ft_cat: \n");
@@ -155,7 +160,6 @@ int		main(void)
 	printf("%c0 (NULL): %d\n", 92, ft_isalnum('\0')); //1
 	printf("whitespace: %d\n\n", ft_isalnum(' ')); //1
 
-	printf("\n");
 	printf("ft_isalnum for NULL: %d\n", ft_isalnum('\0')); //0
 	printf("ft_isalnum for whitespace ' ': %d\n", ft_isalnum(' ')); //0
 	printf("ft_isalnum for vertical tab: %d\n\n", ft_isalnum(0x0b)); //0
@@ -223,12 +227,41 @@ int		main(void)
 	char nick[42] = "Nick...";
 	printf("%s", ft_strcat(nick, "is your... FATHER...\n\n"));
 
-	printf("END OF TESTING MAIN TESTING\n\n");
+	printf("🚀\033[1;32mEND OF MAIN TESTING🚀\033[0m\n\n");
 
 	printf("ft_add: %d\n", ft_add(42,42));
-	printf("ft_divide: %d\n\n", ft_divide(255460,25));
+	printf("ft_add: %d\n", ft_add(5,5));
+	printf("ft_add: %d\n", ft_add(-0,0));
+	printf("ft_add: %d\n", ft_add(-0,-1));
+	printf("ft_add: %d\n", ft_add(-25,42));
+	printf("ft_add: %d\n\n", ft_add(125123545,-121546123));
 
-	printf("END OF BONUS FUNCTIONS\n");
+	printf("ft_divide: %d\n", ft_divide(25,25));
+	printf("ft_divide: %d\n", ft_divide(250,25));
+	printf("ft_divide: %d\n", ft_divide(1111111,10101));
+	printf("ft_divide: %d\n", ft_divide(987654321,123456789));
+	printf("ft_divide: %d\n", ft_divide(0,99999999));
+	printf("ft_divide: %d\n\n", ft_divide(-121,10));
+
+	printf("ft_mul: %d\n", ft_mul(5,5));
+	printf("ft_mul: %d\n", ft_mul(10,1));
+	printf("ft_mul: %d\n", ft_mul(5,-5));
+	printf("ft_mul: %d\n", ft_mul(15,50));
+	printf("ft_mul: %d\n", ft_mul(33,33));
+	printf("ft_mul: %d\n\n", ft_mul(111,111));
+
+	float	x[] = {69.69, 42.42, 33.3E22, 1};
+	float	y[] = {-22.233, 0.1234, 1234.5E20, 1};
+	ft_addfloat(x,y);
+	printf("%f\n%f\n%f\n%f\n", x[0], x[1], x[2], x[3]);
+
+	while (fact <= 20)
+	{
+		printf("ft_factorial of %llu = %llu\n", fact, ft_factorial(fact));
+		fact++;
+	}
+
+	printf("🚀\033[1;32mEND OF BONUS TESTING🚀\033[0m\n\n");
 
 	return (0);
 }
