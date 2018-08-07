@@ -6,7 +6,7 @@
 /*   By: ztisnes <ztisnes@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/24 10:13:44 by ztisnes           #+#    #+#             */
-/*   Updated: 2018/08/06 22:54:54 by ztisnes          ###   ########.fr       */
+/*   Updated: 2018/08/06 23:27:56 by ztisnes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ extern	int32_t			ft_divide(int32_t dividend, int32_t divisor);
 extern	int				ft_mul(int x, int y);
 extern	uint64_t		ft_factorial(uint64_t num);
 extern	float			ft_addfloat(float[], float[]);
+extern	int				ft_pow(int base, int power);
 
 int		test_memset(void)
 {
@@ -101,7 +102,7 @@ int		main(void)
 	char	bby[] = "hell no baby boy bish";
 	char	something[] = "no";
 	uint64_t fact = 0;
-
+    
 	printf("ft_strdup test: \n");
 	printf("initializing str_dup\n");
 	str_dup = ft_strdup(empty);
@@ -265,7 +266,6 @@ int		main(void)
 	ft_addfloat(result,y);
 	while (sum < 4)
 	{
-		//ft_addfloat(x,y);
 		printf("ft_addfloat of %f and %f: %f\n", x[sum], y[sum], result[sum]);
 		sum++;
 	}
