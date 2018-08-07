@@ -2,8 +2,6 @@
 *.d
 ._*
 .DS*
-dontdieplz/
-
 
 # Object files
 *.o
