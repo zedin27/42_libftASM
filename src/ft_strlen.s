@@ -1,5 +1,7 @@
 [bits 64]								; This is like a shebang, but telling
 										; the computer which CPU is used
+										; RIP Tony. You will be in this file
+										; dicks out for you
 
 section .text
 global ft_strlen						; main
