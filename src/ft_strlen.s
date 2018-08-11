@@ -10,7 +10,7 @@ global _ft_strlen						; main
 _ft_strlen:
 	mov		rcx, 0xffffffffffffffff		; this is a hex value of -1
 	xor		rax, rax					; making sure our inner 8-bits is zeroed
-	cld									; clear data
+
 	repne	scasb						; scan string for NUL, decrementing each char
 	not		rcx							; again, reversing all bits
 	dec		rcx							; decrement rcx by one, which will contain then
