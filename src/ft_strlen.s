@@ -4,17 +4,17 @@
 										; dicks out for you
 
 section .text
-global ft_strlen						; main
+global _ft_strlen						; main
 
-%define NULL 0x00
 
 ; unsigned	ft_strlen(const char *str);
-ft_strlen:
-	sub		rcx, rcx			; setting up to NULL by subtracting
-	not		rcx					; two's complement
-
+_ft_strlen:
+	mov		rcx, -1				; fix this into hexadecimal purpose
+	xor		al, al
 	cld							; clear data
-	repnz	scasb				; scan string for NUL, decrementing each char
+	repne	scasb				; scan string for NUL, decrementing each char
 	not		rcx					; again, reversing all bits
 	dec		rcx					; decrement rcx by one, which will contain then
 								; contain the length of the string
+	mov		rax, rcx
+	ret
