@@ -6,7 +6,7 @@
 /*   By: ztisnes <ztisnes@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/24 10:13:44 by ztisnes           #+#    #+#             */
-/*   Updated: 2018/08/11 15:07:56 by ztisnes          ###   ########.fr       */
+/*   Updated: 2018/08/12 19:16:13 by ztisnes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -277,7 +277,8 @@ int		main(void)
 	// 	fact++;
 	// }
     //
-	printf("ft_sqrt of 25 is: %f\n", ft_sqrt(25.00));
+	ft_sqrt(25);
+	// printf("ft_sqrt of 25 is: %f\n", ft_sqrt(25.00));
 	// printf("🚀\033[1;32mEND OF BONUS TESTING🚀\033[0m\n\n");
 
 	return (0);
