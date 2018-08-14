@@ -6,7 +6,7 @@
 /*   By: ztisnes <ztisnes@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/24 10:13:44 by ztisnes           #+#    #+#             */
-/*   Updated: 2018/08/12 19:16:13 by ztisnes          ###   ########.fr       */
+/*   Updated: 2018/08/13 18:01:45 by ztisnes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,19 +90,21 @@ int		test_bzero(void)
 
 int		main(void)
 {
-	char	str[] = "Hello my corrector, you are currently in the matrix assembly version"; //current string testing
-	char	*upper = "abcdefghijklmnopqrstuvwxyz"; //ft_toupper
-	char	*lower = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"; //ft_tolower
-	char	test[10] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
-	int		i = -1;
-	int		j = -1;
-	int		one = 0;
-	int		fd = 0;
-	char	*str_dup;
-	char	empty[] = "";
-	char	bby[] = "hell no baby boy bish";
-	char	something[] = "no";
-	uint64_t fact = 0;
+	printf("ft_sqrt of 25 is: %f\n", ft_sqrt(25.25));
+
+	// char	str[] = "Hello my corrector, you are currently in the matrix assembly version"; //current string testing
+	// char	*upper = "abcdefghijklmnopqrstuvwxyz"; //ft_toupper
+	// char	*lower = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"; //ft_tolower
+	// char	test[10] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+	// int		i = -1;
+	// int		j = -1;
+	// int		one = 0;
+	// int		fd = 0;
+	// char	*str_dup;
+	// char	empty[] = "";
+	// char	bby[] = "hell no baby boy bish";
+	// char	something[] = "no";
+	// uint64_t fact = 0;
 
 	// printf("ft_strdup test: \n");
 	// printf("initializing str_dup\n");
@@ -277,8 +279,7 @@ int		main(void)
 	// 	fact++;
 	// }
     //
-	ft_sqrt(25);
-	// printf("ft_sqrt of 25 is: %f\n", ft_sqrt(25.00));
+	//ft_sqrt(25);
 	// printf("🚀\033[1;32mEND OF BONUS TESTING🚀\033[0m\n\n");
 
 	return (0);
