@@ -1,22 +1,19 @@
-[bits 64] ; dont use this file
+section .data
+formatfloatinput db "%lf", 0
 
-global _ft_pow
 section .text
+global _ft_pow
 
 _ft_pow:
-        test    esi, esi
-        jle     .LBB0_1
-        mov     ecx, 1
-        mov     eax, 1
-.LBB0_3:
-        test    sil, 1
-        mov     edx, edi
-        cmove   edx, ecx
-        imul    eax, edx
-        imul    edi, edi
-        shr     2
-        jne     .LBB0_3
-        ret
-.LBB0_1:
-        mov     eax, 1
-        ret
+    push rbp        ; maintain stack alignment
+    mov r12, 3      ; fetch input into r12 here, use 3 as example
+    neg r12         ; get -n
+    add r12, 1023   ; add the double-precision exponent bias
+    shl r12, 52     ; shift into place
+    ; sign and mantissa are zero, we are done
+    movq xmm0, r12
+    mov rdi, formatfloatinput
+    mov eax, 1
+    xor eax, eax
+    pop rbp
+    ret
