@@ -1,4 +1,4 @@
-; [bits 64]
+[bits 64]
 
 global _ft_divide
 section .text
