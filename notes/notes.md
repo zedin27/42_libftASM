@@ -7,7 +7,7 @@ Note from Adam:
 > For anyone trying to learn ASM I’d suggest learning all the basics first, how stack/heap works, how program execution is tracked, registers and which are reserved and for what purpose, etc.
 Then do ASM alone before diving into Inline ASM, it’ll make it a lot clearer 🙂
 
-![leedle](Screen Shot 2018-07-26 at 5.49.13 PM.png)
+![leedle](screenshot.png)
 
 response from Kane:
 
@@ -107,8 +107,7 @@ Because registers have different sizes, it is 8, 16, and 32 bits.
 
 32 bits = double word (**d**)
 
-
-![general purpose registers](general_purpose_registers)
+<img src="general_purpose_registers" width="40%">
 
 **Use protection kids! (protection rings)**
 Ring layers are used for protection of malware or fault capabilities. Each ring are a privilege level of security, and each **instruction type is linked with one or more privilege levels**.
