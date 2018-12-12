@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ztisnes <ztisnes@student.42.us.org>        +#+  +:+       +#+        */
+/*   By: ztisnes <ztisnes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/24 10:13:44 by ztisnes           #+#    #+#             */
-/*   Updated: 2018/08/13 18:01:45 by ztisnes          ###   ########.fr       */
+/*   Updated: 2018/12/12 02:09:17 by zt               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -279,7 +279,7 @@ int		main(void)
 	// 	fact++;
 	// }
     //
-	//ft_sqrt(25);
+	//ft_sqrt(25); FIXME
 	// printf("🚀\033[1;32mEND OF BONUS TESTING🚀\033[0m\n\n");
 
 	return (0);
