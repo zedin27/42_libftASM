@@ -6,7 +6,7 @@
 #    By: ztisnes <ztisnes@student.42.us.org>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/08/12 19:53:21 by ztisnes           #+#    #+#              #
-#    Updated: 2018/08/12 19:53:25 by ztisnes          ###   ########.fr        #
+#    Updated: 2019/02/11 12:37:38 by ztisnes          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,7 @@ CC			= nasm
 ASFLAGS		= -f macho64
 SRCDIR		= src
 OBJDIR		= obj
-EXE			= troll
+EXE			= test_asm
 SRC			= $(wildcard $(SRCDIR)/*.s)
 OBJ			= $(patsubst $(SRCDIR)/%.s, $(OBJDIR)/%.o, $(SRC))
 
