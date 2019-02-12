@@ -6,7 +6,7 @@
 /*   By: ztisnes <ztisnes@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/24 10:13:44 by ztisnes           #+#    #+#             */
-/*   Updated: 2019/02/11 12:50:36 by ztisnes          ###   ########.fr       */
+/*   Updated: 2019/02/11 20:49:39 by ztisnes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,7 @@ int		test_bzero(void)
 
 int		main(void)
 {
-	printf("ft_sqrt of 25 is: %f\n", ft_sqrt(25.25));
+	// printf("ft_sqrt of 25 is: %f\n", ft_sqrt(25.25));
 
 	char	str[] = "Hello my corrector, you are currently in the matrix assembly version"; //current string testing
 	char	*upper = "abcdefghijklmnopqrstuvwxyz"; //ft_toupper
@@ -222,10 +222,10 @@ int		main(void)
 		printf("lowercasing %c -> %c\n", lower[j], ft_tolower(lower[j]));
 
 	printf("\n");
-	char copy[26];
-	ft_memcpy(copy, upper, 26);
+	char copy[27];
+	ft_memcpy(copy, upper, 27);
 	printf("empty string copied over from *upper: %s\n", copy);
-	ft_memcpy(copy, lower, 26);
+	ft_memcpy(copy, lower, 27);
 	printf("empty string copied over from *lower : %s\n\n", copy);
 
 	printf("testing ft_strcat: \n");
@@ -244,7 +244,7 @@ int		main(void)
 	printf("ft_sub: %d\n", ft_sub(5,5));
 	printf("ft_sub: %d\n", ft_sub(100,5));
 	printf("ft_sub: %d\n", ft_sub(99,92));
-	printf("ft_sub: %d\n", ft_sub(100,5));
+	printf("ft_sub: %d\n", ft_sub(-100,5));
 	printf("ft_sub: %d\n", ft_sub(0,-0));
 	printf("ft_sub: %d\n\n", ft_sub(1,1));
 
@@ -264,9 +264,9 @@ int		main(void)
 
 	float result[] = {-29.750, 244.333, 887.29, 1.1E23};
 	float y[] = {-2.25,  199.333, -8.29,  22.1E23};
-	float x[] = {-29.750, 244.333, 887.29, 1.1E23;
+	float x[] = {-29.750, 244.333, 887.29, 1.1E23};
 	int sum = 0;
-	ft_addfloat(result, y);
+	ft_addfloat(result,y);
 	while (sum < 4)
 	{
 		printf("ft_addfloat of %f and %f: %f\n", x[sum], y[sum], result[sum]);
@@ -279,7 +279,7 @@ int		main(void)
 		fact++;
 	}
 
-	//ft_sqrt(25); FIXME
+	// ft_sqrt(25); FIXME
 	printf("🚀\033[1;32mEND OF BONUS TESTING🚀\033[0m\n\n");
 
 	return (0);
